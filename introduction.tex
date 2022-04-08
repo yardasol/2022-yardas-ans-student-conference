@@ -1,5 +1,17 @@
 \begin{frame}
   \frametitle{What is software?}
+  \begin{figure}[htpb]
+      \centering
+      \begin{subfigure}
+        \centering
+        \includegraphics[width=1.5cm]{images/firefox-logo.png}
+      \end{subfigure}
+      \hspace{1cm}
+      \begin{subfigure}
+        \centering
+        \includegraphics[width=5cm]{images/openmc-logo.png}
+      \end{subfigure}
+  \end{figure}
   % a comment
   % add photos of software
   % firefox, openmc, etc
@@ -29,27 +41,39 @@
     \frametitle{Closed vs. Open source}
     \begin{columns}
         \column[t]{5cm}
-        \section{Closed}
+        Closed codes
         \begin{itemize}
             \item Raises barrier to reproducing results in scientific literature
-            \item Most closed codes have decades of development experience
+            \item Most closed codes have decades of development experience -> more feature-rich, more code to maintain
             \item Educational/training resources may be more difficult to obtain
             \item May have to go through export control lisencing
         \end{itemize}
 
+
         \column[t]{5cm}
+        Open codes
         \begin{itemize}
             \item Lowers barrier to reproducing results in scientific literature
-            \item Most open codes have less than a decade of development
-            \item Educational/training resources are easily accessible, if they exist
+            \item Most open codes have less than a decade of development -> less feature-rich, more flexible when implementing new features
+            \item Educational/training resources are easily accessible (if they exist)
             \item No need to go through export control
         \end{itemize}
     \end{columns}
+
+    \end{frame}
+
+\begin{frame}
+    \frametitle{Open source is the future for advanced reactor modeling}
+    \begin{itemize}
+        \item \Gls{ONCORE} initiative
+        \item Open codes are better for:
+        \item users, because their manuals/tutorials live in the open and can accept contributions on-the-fly
+        \item developers, because they tend to require good practices during development 
+    \end{itemize}
 \end{frame}
 
-\begin{}
-    \frametitle{Open source is the future}
-    \ldots
-
+\begin{frame}[t]
+    \frametitle{How do you develop features in open codes?}
+    Some useful tools include version control, open development workflow, and automation\footnote{These practices may also be used by closed code developers but there's no way to know for certain without asking them.}
     
 \end{frame}
