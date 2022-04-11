@@ -1,3 +1,13 @@
+\begin{frame}[t]
+    \frametitle{Important terminoligy}
+    
+    \begin{itemize}
+        \item Repository - the directory containing your project's code and files.
+        \item Branch - A copy of the states of all the files in the project.
+        \item Commit - a snapshot of changes of a specific group of staged files.
+    \end{itemize}
+\end{frame}
+
 \begin{frame}
   \frametitle{Document states}
   \begin{figure}[htpb]
@@ -14,8 +24,54 @@
     \end{figure} 
 \end{frame}
 
-\begin{frame}
-    \frametitle{Multiple branches}
-    \ldots
-    
+\begin{frame}[fragile]
+    \frametitle{\verb:git:}
+    \verb:git: is perhaps the most widely used version control tool nowadays.
+
+    \verb:git: tracks file states via {\it commits} -- snapshots of explicit groups of files in the repository
+
+    Basic workflow:
+    \begin{enumerate}
+        \item Make changes to tracked files in your local repository
+        \item Stage those changes using \verb:git add:
+        \item Commit the stages changes to the repository using \verb:git commit:
+        \item Push the commited changes to a remote repository (where the official version of the code is hosted)
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{A real-life \verb:git: example}
+    \framesubtitle{Fixing a typo in OpenMC}
+
+    Excerpt of \verb:openmc/surface.py: (lines 1970 - 1972)
+
+    \begin{verbatim}
+class ZCone(QuadricMixin, Surface):
+    """A cone parallel to the x-axis of the form :math:`(x - x_0)^2 + 
+    (y - y_0)^2 = r^2 (z - z_0)^2`.
+    \end{verbatim}
+
+    Make our fix:
+
+    \begin{verbatim}
+class ZCone(QuadricMixin, Surface):
+    """A cone parallel to the z-axis of the form :math:`(x - x_0)^2 + 
+    (y - y_0)^2 = r^2 (z - z_0)^2`.
+    \end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{A real-life \verb:git: example}
+    \framesubtitle{Fixing a typo in OpenMC}
+
+    In the shell:
+
+    \begin{verbatim}
+user@computer1:~/openmc$ git add openmc/surface.py
+user@computer1:~/openmc$ git commit -m "fix axis spec in docstring for ZCone"
+user@computer1:~/openmc$ git push
+    \end{verbatim}
+
+    In this case, we pushed to the openmc-dev/openmc repository on GitHub. The commit is here $\rightarrow$ \url{https://github.com/openmc-dev/openmc/pull/2018/commits/48dbf1a4c3a83bf7abd0722ab868f532abc6b5bd} 
 \end{frame}
