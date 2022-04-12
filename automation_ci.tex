@@ -24,7 +24,7 @@
     \begin{figure}[htpb]
         \begin{subfigure}
             \centering
-            \includegraphics[width=3cm]{images/circleci-logo.png}
+            \includegraphics[width=3cm]{images/circleci-logo.eps}
         \end{subfigure}
         \begin{subfigure}
             \centering
@@ -67,35 +67,126 @@
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{GitHub Actions Workflow Example}
     \framesubtitle{Populating SaltProc release notes}
 
-    \begin{figure}[htpb]
-        \centering
-        \includegraphics[width=10cm]{images/github_actions_workflow_ex1}
-    \end{figure}
+    \begin{minted}{yaml}
+# Preamble
+name: Populate SaltProc release notes
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'doc/releasenotes/v**.rst'
+  # enable worflow to be run manually
+  workflow_dispatch:
+
+jobs:
+  populate-releasenotes:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
+    \end{minted}
+    
+    
+
+    %\begin{figure}[htpb]
+    %    \centering
+    %    \includegraphics[width=10cm]{images/github_actions_workflow_ex1}
+    %\end{figure}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
     \frametitle{GitHub Actions Workflow Example}
     \framesubtitle{Populating SaltProc release notes}
+    \begin{minted}{yaml}
+    steps:
+      - uses: actions/checkout@v2
 
-    \begin{figure}[htpb]
-        \centering
-        \includegraphics[width=10cm]{images/github_actions_workflow_ex2}
-    \end{figure}
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Add conda to system path
+        run: |
+          # $CONDA is an environment variable pointing to the
+          # root of the miniconda directory
+          echo $CONDA/bin >> $GITHUB_PATH
+
+      - name: install pandoc 
+        run: |
+          conda install -c conda-forge pandoc
+          pip install --upgrade pandoc
+    \end{minted}
+
+    %\begin{figure}[htpb]
+    %    \centering
+    %    \includegraphics[width=10cm]{images/github_actions_workflow_ex2}
+    %\end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+    \frametitle{GitHub Actions Workflow Example}
+    \framesubtitle{Populating SaltProc release notes}
+    \begin{minted}{yaml}
+      - name: Get most recent draft release version
+        run: |
+          echo "RELEASE_VERSION=$(gh api repos/
+          ${{ github.repository }}/
+          releases --jq '.[0] | .name')" >> $GITHUB_ENV
+          echo "RELEASE_ID=$(gh api repos/
+          ${{ github.repository }}/
+          releases --jq '.[0] | .id')" >> $GITHUB_ENV
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Convert .rst to .md 
+        run: |
+          pandoc -o RELEASENOTES.md -f rst -t gfm doc/releasenotes/
+          ${{ env.RELEASE_VERSION }}.rst --columns 1000
+          sed -i "s/# Release notes for ${{ env.RELEASE_VERSION }}//g"
+          RELEASENOTES.md
+    \end{minted}
+
+    %\begin{figure}[htpb]
+    %    \centering
+    %    \includegraphics[width=10cm]{images/github_actions_workflow_ex2}
+    %\end{figure}
+\end{frame}
+
+
+\begin{frame}[fragile]
     \frametitle{GitHub Actions Workflow Example}
     \framesubtitle{Populating SaltProc release notes}
 
-    \begin{figure}[htpb]
-        \centering
-        \includegraphics[width=10cm]{images/github_actions_workflow_ex3}
-    \end{figure}
+    \begin{minted}{yaml}
+      - name: Populate the release description with RELEASENOTES.md
+        run: |
+          CURRENT_TAG=$(gh api repos/${{ github.repository }}/
+          releases/${{ env.RELEASE_ID }} \
+          -H "Authorize: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -X GET \
+          --jq '.tag_name')
+          gh api repos/${{ github.repository }}/releases/
+          ${{ env.RELEASE_ID }} \
+          -H "Authorize: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -X PATCH \
+          -F tag_name=$CURRENT_TAG \
+          -F body="$(cat RELEASENOTES.md)"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
+    \end{minted}
+    %\begin{figure}[htpb]
+    %    \centering
+    %    \includegraphics[width=10cm]{images/github_actions_workflow_ex3}
+    %\end{figure}
 \end{frame}
 
 

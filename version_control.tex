@@ -1,16 +1,13 @@
-\begin{frame}[t]
-    \frametitle{Important terminology: Version control}
-    % define version control
-    
-    \begin{itemize}
-        \item Repository - the directory containing your project's code and files.
-        \item Branch - a copy of the states of all the files in the project.
-        \item Commit - a snapshot of changes of a specific group of staged files.
-    \end{itemize}
+\begin{frame}
+    \frametitle{Version Control}
+    \begin{center}
+        Version control is the practice of the tracking changes.
+    \end{center}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Document states}
+  \frametitle{Illustrative example: document states}
+  Repository - the directory containing your project's code and files.
   \begin{figure}[htpb]
       \centering
       \includegraphics[width=0.8\textwidth]{images/singleton-vc.png}
@@ -18,27 +15,47 @@
 \end{frame}
 
 \begin{frame}
-    \frametitle{Branching}
+    \frametitle{Illustrative example: branching}
+    \begin{itemize}
+       \item Branch - a copy of the states of all the files in the project.
+       \item Commit - a snapshot of changes of a specific group of staged files. Typically contain a {\it commit message} that describes the change.
+    \end{itemize}
+
     \begin{figure}[htpb]
         \centering
         \includegraphics[width=0.8\textwidth]{images/branching-vc.png}
     \end{figure} 
 \end{frame}
 
-\begin{frame}[fragile]
-    \frametitle{\verb:git:}
-    \verb:git: is perhaps the most widely used version control tool nowadays.
+\begin{frame}
+    \frametitle{Version Control Systems}
+    \begin{figure}[htpb]
+        \begin{subfigure}
+        \centering
+            \includegraphics[width=2cm]{images/git-logo.eps}
+        \end{subfigure}
+        \begin{subfigure}
+        \centering
+            \includegraphics[width=2cm]{images/mercurial-logo.eps}
+        \end{subfigure}
+        \begin{subfigure}
+        \centering
+            \includegraphics[width=2cm]{images/subversion-logo.eps}
+        \end{subfigure}
+    \end{figure}
+    \begin{center}
+        {\tiny Sources: \cite{git_logo}, \cite{mercurial_logo}, \cite{subversion_logo}}
+    \end{center}
 
-    \verb:git: tracks file states via {\it commits} -- snapshots of explicit groups of files in the repository
+    Software that tracks file states via commits.
 
     Basic workflow:
     \begin{enumerate}
         \item Make changes to tracked files in your local repository
-        \item Stage those changes using \verb:git add:
-        \item Commit the stages changes to the repository using \verb:git commit:
+        \item Stage the changes.
+        \item Commit the stages changes to the repository
         \item Push the commited changes to a remote repository (where the official version of the code is hosted)
     \end{enumerate}
-
 \end{frame}
 
 \begin{frame}[fragile]
@@ -60,13 +77,6 @@ class ZCone(QuadricMixin, Surface):
     """A cone parallel to the z-axis of the form :math:`(x - x_0
     )^2 + (y - y_0)^2 = r^2 (z - z_0)^2`.
     \end{minted}
-\end{frame}
-\begin{frame}[fragile]
-    \frametitle{test}
-    \begin{minted}[codetagify={"TAG1 TAG2"}]{yaml}
-        # TAG1: works <>
-        # TAG2: doesn't work <>
-    \end{minted}   
 \end{frame}
 
 \begin{frame}[fragile]

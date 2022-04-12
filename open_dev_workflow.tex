@@ -1,25 +1,64 @@
 \begin{frame}
-  \frametitle{Open development}
-  What is it?
-  
-  {\it Hint}: distinct from {\it open-source} development
+  \frametitle{Open development: what is it?}
   \pause\medskip
-
   An answer:
 
-  The combination of develpoment practices that emphasizes reproducibility at all scales of the development cycle:
+  More than just hosting code publicly, it is a set of development practices that emphasizes reproducibility and searchability:
   \begin{itemize}
-      \item individual commits
-      \item designing bug fixes and features
+      \item Verbose commit messages
+      \item Ticketing system to track bugs and feature proposals
+      \item Robust justification for bug fixes and features
   \end{itemize}
+  
+  Web-based development platforms like GitHub, GitLab, and BitBucket all provide interfaces that can accomodate an open development approach. 
+  \begin{figure}[htpb]
+      \begin{subfigure}
+          \centering
+          \includegraphics[width=1cm]{images/github-mark.eps}
+      \end{subfigure}
+      \begin{subfigure}
+          \centering
+          \includegraphics[width=3cm]{images/gitlab-logo.eps}
+      \end{subfigure}
+      \begin{subfigure}
+          \centering
+          \includegraphics[width=3cm]{images/bitbucket-logo.eps}
+      \end{subfigure}
+  \end{figure}
+  \begin{center}
+      {\tiny Sources: \cite{github_logo}, \cite{gitlab_logo}, \cite{bitbucket_logo}}
+  \end{center}
 \end{frame}
-    
+
+\begin{frame}
+  \frametitle{Why open development?} 
+  \begin{columns}
+      \column[t]{5cm}
+      Open development\ldots
+      \begin{itemize}
+          \item \ldots creates developer-users $\rightarrow$ more robust code
+          \item \ldots leverages the expertise of the community 
+          \item \ldots 
+      \end{itemize}
+
+      Closed codes can adopt open development practices too!
+
+      \column[t]{5cm}
+      \begin{figure}[htpb]
+          \centering
+          \includegraphics[width=2cm]{images/working-in-public.png}
+      \end{figure}
+      For more on open development, check out {\it Working in Public} by Nadia Eghbal \cite{eghbal_working_2020}
+
+      
+  \end{columns}
+\end{frame}
 
 \begin{frame}[fragile]
     \frametitle{Open development example}
     \framesubtitle{Implementing OpenMC in SaltProc}
 
-    Idea: Implement OpenMC in an open-source Molten Salt Reactor depletion simulator 
+    Idea: Implement OpenMC in an open-source Molten Salt Reactor depletion simulator\footnote{You can find the issue here: \url{https://github.com/arfc/saltproc/issues/133}} 
     \newline
     \newline
     In the issue tracker, I detail background/motivation and the description of the idea:
