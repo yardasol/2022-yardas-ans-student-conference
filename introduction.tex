@@ -14,9 +14,10 @@
         \centering
         \includegraphics[width=2cm]{images/git-logo.png}
       \end{subfigure}
-      \newline
-      {\tiny Sources: \cite{firefox_logo}, \cite{openmc_logo}, \cite{git_logo}}
   \end{figure}
+  \begin{center}
+    {\tiny Sources: \cite{firefox_logo}, \cite{openmc_logo}, \cite{git_logo}}
+  \end{center}
   % a comment
   % add photos of software
   % firefox, openmc, etc
@@ -46,39 +47,33 @@
             \centering
             \includegraphics[width=4cm]{images/transmutation.png}
         \end{subfigure}
-        {\tiny Sources: \cite{exasmr_fig},\cite{openmc_atr_slice},\cite{dagmc_nasa_module},\cite{armi_transmutation_fig}}
     \end{figure}
+    \begin{center}
+      {\tiny Sources: \cite{exasmr_fig},\cite{openmc_atr_slice},\cite{dagmc_nasa_module},\cite{armi_transmutation_fig}}
+    \end{center}
     \pause\medskip
     \begin{columns}
         \column[t]{5cm}
         \begin{itemize}
             \item Neutron transport
             \item Decay chains
+            \item Materials
+            \item Thermal hydraulics
             \item PRA
             \item Accident analysis
             \item {\bf Licensing activities}
         \end{itemize}
 
         \column[t]{5cm}
-        Regulatory bodies will require new software features in order to effectively and efficiently perform licensing activities for the next generation of reactor deigns\cite{usnrc_nonlwr_2020-1}
+        Regulatory bodies will require new software features in order to effectively and efficiently perform licensing activities for the next generation of reactor designs\cite{usnrc_nonlwr_2020-1}
     \end{columns}
 
     % add modeling + simulation looking figs here
 \end{frame}
 
 \begin{frame}
-    \frametitle{Closed vs. Open source}
+    \frametitle{Open source}
     \begin{columns}
-        \column[t]{5cm}
-        Closed codes
-        \begin{itemize}
-            \item Raises barrier to reproducing results in scientific literature
-            \item Most closed codes have decades of development experience $\rightarrow$ more feature-rich, more code to maintain
-            \item Educational/training resources may be more difficult to obtain
-            \item May have to go through export control lisencing
-        \end{itemize}
-
-
         \column[t]{5cm}
         Open codes
         \begin{itemize}
@@ -87,6 +82,9 @@
             \item Educational/training resources are easily accessible (if they exist)
             \item No need to go through export control
         \end{itemize}
+
+        \column[t]{5cm}
+
     \end{columns}
 
 \end{frame}
@@ -105,8 +103,12 @@
 
     There's no ``right'' way to do this, but there are useful conventions and concepts:
     \begin{itemize}
-        \item Code standards (helps with formatting and automatic documentation)
+        \item Code standards (e.g. PEP8, The C Standard)
         \item User and developer guides
+        \begin{itemize}
+            \item Installation instructions
+            \item Contributing guidelines
+        \end{itemize}
         \item {\bf Version control}
         \item {\bf Open development}
         \item {\bf Automation}

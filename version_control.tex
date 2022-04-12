@@ -4,7 +4,7 @@
     
     \begin{itemize}
         \item Repository - the directory containing your project's code and files.
-        \item Branch - A copy of the states of all the files in the project.
+        \item Branch - a copy of the states of all the files in the project.
         \item Commit - a snapshot of changes of a specific group of staged files.
     \end{itemize}
 \end{frame}
@@ -47,19 +47,26 @@
 
     Excerpt of \verb:openmc/surface.py: (lines 1970 - 1972)
 
-    \begin{verbatim}
+    \definecolor{bg}{rgb}{0.95,0.95,0.95}
+    \begin{minted}[bgcolor=bg]{python}
 class ZCone(QuadricMixin, Surface):
-    """A cone parallel to the x-axis of the form :math:`(x - x_0)^2 + 
-    (y - y_0)^2 = r^2 (z - z_0)^2`.
-    \end{verbatim}
-
+    """A cone parallel to the x-axis of the form :math:`(x - x_0
+    )^2 + (y - y_0)^2 = r^2 (z - z_0)^2`.
+    \end{minted}
     Make our fix:
-
-    \begin{verbatim}
+    
+    \begin{minted}[bgcolor=bg,highlightlines={2}]{python}
 class ZCone(QuadricMixin, Surface):
-    """A cone parallel to the z-axis of the form :math:`(x - x_0)^2 + 
-    (y - y_0)^2 = r^2 (z - z_0)^2`.
-    \end{verbatim}
+    """A cone parallel to the z-axis of the form :math:`(x - x_0
+    )^2 + (y - y_0)^2 = r^2 (z - z_0)^2`.
+    \end{minted}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{test}
+    \begin{minted}[codetagify={"TAG1 TAG2"}]{yaml}
+        # TAG1: works <>
+        # TAG2: doesn't work <>
+    \end{minted}   
 \end{frame}
 
 \begin{frame}[fragile]
@@ -67,13 +74,13 @@ class ZCone(QuadricMixin, Surface):
     \framesubtitle{Fixing a typo in OpenMC}
 
     In the shell:
-
-    \begin{verbatim}
+    \definecolor{bg}{rgb}{0.95,0.95,0.95}
+    \begin{minted}[bgcolor=bg]{shell}
 user@computer1:~/openmc$ git add openmc/surface.py
-user@computer1:~/openmc$ git commit -m "fix axis spec in docstring for 
-ZCone"
+user@computer1:~/openmc$ git commit -m "fix axis spec in docstri
+ng for ZCone"
 user@computer1:~/openmc$ git push
-    \end{verbatim}
+    \end{minted}
 
     In this case, we pushed to the openmc-dev/openmc repository on GitHub. The commit is here $\rightarrow$ \url{https://github.com/openmc-dev/openmc/pull/2018/commits/48dbf1a4c3a83bf7abd0722ab868f532abc6b5bd} 
 \end{frame}
