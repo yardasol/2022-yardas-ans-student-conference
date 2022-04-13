@@ -78,39 +78,40 @@
         \column[t]{5cm}
         Regulatory bodies will require new software features in order to effectively and efficiently perform licensing activities for the next generation of reactor designs\cite{usnrc_nonlwr_2020-1}
     \end{columns}
-
-    % add modeling + simulation looking figs here
 \end{frame}
 
 \begin{frame}
     \frametitle{Open source software}
+    Software whose source code is public.
+    
     \begin{columns}
         \column[t]{5cm}
-        Open codes
         \begin{itemize}
-            \item Lowers barrier to reproducing results in scientific literature
-            \item Most open codes have less than a decade of development $\rightarrow$ less feature-rich, more flexible when implementing new features
-            \item Educational/training resources are easily accessible (if they exist)
-            \item No need to go through export control
+            \item Promotes collaborative contributions
+            \item Reduces duplicate/competing work
         \end{itemize}
 
+        \pause
         \column[t]{5cm}
-
+        A sample of open-source codes in the nuclear space
+        \begin{itemize}
+            \item OpenMC (monte carlo neutron transport)
+            \item MOOSE (multiphysics finite element framework)
+            \item nekRS (Spectral element computational fluid dynamics)
+        \end{itemize}
     \end{columns}
-
 \end{frame}
 
 \begin{frame}
-    \frametitle{Open source is the future for advanced reactor modeling}
+    \frametitle{Open source advanced reactor modeling}
     \Gls{IAEA} facilitated \Gls{ONCORE} initiative\cite{fiorina_initiative_2021}:
     \newline
     \newline
     \noindent ``ONCORE\ldots is an IAEA-facilitated international collaboration framework for the development and applictaion of open-source multi-physics simulation tools to support research, education, and training for analysis of advanced nuclear power reactors''\cite{iaea_open-source}
-
 \end{frame}
 
 \begin{frame}[t]
-    \frametitle{How do you develop features in open codes?}
+    \frametitle{How to develop features in open-source software?}
 
     There's no ``right'' way to do this, but there are useful conventions and concepts:
     \begin{itemize}
