@@ -18,7 +18,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{What is software?}
+  \frametitle{Software}
   \begin{figure}[htpb]
       \centering
       \begin{subfigure}
@@ -40,9 +40,8 @@
   % a comment
   % add photos of software
   % firefox, openmc, etc
-  \pause\medskip
   \begin{itemize}
-      \item Ultimately, software is a {\it tool} we can use to solve complex problems.
+      \item Ultimately, software is a {\it tool} we can use to solve (potentially) complex problems.
   \end{itemize}
 \end{frame}
 
@@ -71,16 +70,34 @@
       {\tiny Sources: \cite{exasmr_fig},\cite{openmc_atr_slice},\cite{dagmc_nasa_module},\cite{armi_transmutation_fig}}
     \end{center}
     \pause\medskip
+    \begin{columns}
+    \column[t]{5cm}
     \begin{itemize}
         \item Neutron transport
-        \item Decay chains
-        \item Materials
         \item Thermal hydraulics
-        \item PRA
         \item Accident analysis
-        \item {\bf Licensing activities}
     \end{itemize}
 
+    \column[t]{5cm}
+    \begin{itemize}
+        \item Materials
+        \item Decay chains
+        \item PRA
+    \end{itemize}
+    
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Advanced reactor modeling}
+    Regulatory bodies will require new software features in order to effectively and efficiently perform licensing activities for the next generation of reactor designs\cite{usnrc_nonlwr_2020-1}
+    \pause
+    \newline
+    \newline
+    \Gls{IAEA} facilitated \Gls{ONCORE} initiative\cite{fiorina_initiative_2021}:
+    \newline
+    \newline
+    \noindent ``ONCORE\ldots is an IAEA-facilitated international collaboration framework for the development and applictaion of open-source multi-physics simulation tools to support research, education, and training for analysis of advanced nuclear power reactors''\cite{iaea_open-source}
 \end{frame}
 
 \begin{frame}
@@ -91,7 +108,7 @@
         \column[t]{5cm}
         \begin{itemize}
             \item Promotes collaborative contributions
-            \item Reduces duplicate/competing work
+            \item Reduces duplicate work
         \end{itemize}
 
         \pause
@@ -103,18 +120,6 @@
             \item nekRS (Spectral element computational fluid dynamics)
         \end{itemize}
     \end{columns}
-\end{frame}
-
-\begin{frame}
-    \frametitle{Open source advanced reactor modeling}
-    Regulatory bodies will require new software features in order to effectively and efficiently perform licensing activities for the next generation of reactor designs\cite{usnrc_nonlwr_2020-1}
-    \pause
-    \newline
-    \newline
-    \Gls{IAEA} facilitated \Gls{ONCORE} initiative\cite{fiorina_initiative_2021}:
-    \newline
-    \newline
-    \noindent ``ONCORE\ldots is an IAEA-facilitated international collaboration framework for the development and applictaion of open-source multi-physics simulation tools to support research, education, and training for analysis of advanced nuclear power reactors''\cite{iaea_open-source}
 \end{frame}
 
 \begin{frame}[t]
